@@ -28,3 +28,4 @@ Superhero costume designer where the user gets to choose from costume items and 
 My ERD (Entity Relationship Diagram)
 
 ![schema](docs/img/db.png)
+

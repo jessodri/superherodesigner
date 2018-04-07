@@ -1,0 +1,46 @@
+<h1>New Item</h1>
+<%= form_with(model: @item, local: true) do |form| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :item %>
+    <%= form.text_field :label %>
+  </div>
+<br>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+<br>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field( :price, in: 1.0..200.0, step: 0.05) %>
+  </div>
+<br>
+
+    <div class="field">
+    <%= form.label :item_type %>
+    <%= form.select :item_type_id, options_from_collection_for_select(@item_types, :id, :label), prompt: true %>
+  </div>
+
+<br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<br>
+<%= link_to 'Home Page', root_path %><br>
+<%= link_to 'Items Page', items_path %>
