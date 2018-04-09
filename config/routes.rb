@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get '/items/new', to: 'items#new'
 
   get '/items/:id/edit/', to: 'items#edit', as: 'edit'
-  patch '/items/:id', to: 'items#update'
+  patch '/items/:id', to: 'items#update', as: 'update'
 
 end

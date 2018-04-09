@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     end
   
     def create
-      @item = Item.new(params.require(:item).permit(:label, :description, :price, :item_type_id))
+      @item = Item.create(params.require(:item).permit(:label, :description, :price, :item_type_id))
 
       redirect_to items_path
       # item = Item.new
@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     def update
       @item = Item.find(params[:id])
       permitted_columns = params.require(:item).permit(:label, :description)
-      @article.update_attributes(permitted_columns)
+      @item.update_attributes(permitted_columns)
       redirect_to items_path
     end
   end
